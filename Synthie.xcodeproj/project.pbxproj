@@ -7,13 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B7482D2C20CB9A9600EB637B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7482D2B20CB9A9600EB637B /* AudioToolbox.framework */; };
+		B7482D2E20CB9AAF00EB637B /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7482D2D20CB9AAF00EB637B /* AudioUnit.framework */; };
+		B7482D3020CB9ACD00EB637B /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7482D2F20CB9ACD00EB637B /* CoreAudio.framework */; };
+		B7482D3720CC514500EB637B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B7482D3620CC514500EB637B /* README.md */; };
+		B7482D3F20CC51DF00EB637B /* AudioEngineObjC.mm in Sources */ = {isa = PBXBuildFile; fileRef = B7482D3E20CC51DF00EB637B /* AudioEngineObjC.mm */; };
+		B7482D4720CC53F000EB637B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7482D4620CC53F000EB637B /* AppDelegate.swift */; };
+		B7482D4920CC53F000EB637B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7482D4820CC53F000EB637B /* ViewController.swift */; };
+		B7482D4C20CC53F000EB637B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7482D4A20CC53F000EB637B /* Main.storyboard */; };
+		B7482D4E20CC53F000EB637B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7482D4D20CC53F000EB637B /* Assets.xcassets */; };
+		B7482D5120CC53F000EB637B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7482D4F20CC53F000EB637B /* LaunchScreen.storyboard */; };
+		B7482D5620CC543D00EB637B /* AudioEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F44F720C3BB8500E894D2 /* AudioEngine.swift */; };
+		B7482D5720CC544000EB637B /* AudioEngineObjC.mm in Sources */ = {isa = PBXBuildFile; fileRef = B7482D3E20CC51DF00EB637B /* AudioEngineObjC.mm */; };
+		B7482D5820CC544000EB637B /* AudioHAL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B74F44FB20C3BC6800E894D2 /* AudioHAL.cpp */; };
+		B7482D5C20CC57C700EB637B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7482D5B20CC57C700EB637B /* AudioToolbox.framework */; };
 		B74F44E820C3BB3500E894D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F44E720C3BB3500E894D2 /* AppDelegate.swift */; };
 		B74F44EA20C3BB3500E894D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F44E920C3BB3500E894D2 /* ViewController.swift */; };
 		B74F44EC20C3BB3500E894D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B74F44EB20C3BB3500E894D2 /* Assets.xcassets */; };
 		B74F44EF20C3BB3500E894D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B74F44ED20C3BB3500E894D2 /* Main.storyboard */; };
+		B74F44F820C3BB8500E894D2 /* AudioEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F44F720C3BB8500E894D2 /* AudioEngine.swift */; };
+		B74F44FD20C3BC6800E894D2 /* AudioHAL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B74F44FB20C3BC6800E894D2 /* AudioHAL.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B7482D2B20CB9A9600EB637B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		B7482D2D20CB9AAF00EB637B /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		B7482D2F20CB9ACD00EB637B /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		B7482D3620CC514500EB637B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B7482D3D20CC51DE00EB637B /* AudioEngineObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioEngineObjC.h; path = Synthie/AudioEngineObjC.h; sourceTree = SOURCE_ROOT; };
+		B7482D3E20CC51DF00EB637B /* AudioEngineObjC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AudioEngineObjC.mm; path = Synthie/AudioEngineObjC.mm; sourceTree = SOURCE_ROOT; };
+		B7482D4420CC53F000EB637B /* PocketSynthie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketSynthie.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7482D4620CC53F000EB637B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B7482D4820CC53F000EB637B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B7482D4B20CC53F000EB637B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B7482D4D20CC53F000EB637B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B7482D5020CC53F000EB637B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B7482D5220CC53F000EB637B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7482D5920CC57B200EB637B /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.2.sdk/System/Library/Frameworks/AudioUnit.framework; sourceTree = DEVELOPER_DIR; };
+		B7482D5B20CC57C700EB637B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.2.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
 		B74F44E420C3BB3500E894D2 /* Synthie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Synthie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B74F44E720C3BB3500E894D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B74F44E920C3BB3500E894D2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -21,24 +52,113 @@
 		B74F44EE20C3BB3500E894D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B74F44F020C3BB3500E894D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B74F44F120C3BB3500E894D2 /* Synthie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Synthie.entitlements; sourceTree = "<group>"; };
+		B74F44F720C3BB8500E894D2 /* AudioEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEngine.swift; sourceTree = "<group>"; };
+		B74F44FA20C3BC6700E894D2 /* Synthie-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Synthie-Bridging-Header.h"; sourceTree = "<group>"; };
+		B74F44FB20C3BC6800E894D2 /* AudioHAL.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AudioHAL.cpp; sourceTree = "<group>"; };
+		B74F44FC20C3BC6800E894D2 /* AudioHAL.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AudioHAL.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B7482D4120CC53F000EB637B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7482D5C20CC57C700EB637B /* AudioToolbox.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B74F44E120C3BB3500E894D2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7482D3020CB9ACD00EB637B /* CoreAudio.framework in Frameworks */,
+				B7482D2E20CB9AAF00EB637B /* AudioUnit.framework in Frameworks */,
+				B7482D2C20CB9A9600EB637B /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B7482D2A20CB9A9600EB637B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B7482D5B20CC57C700EB637B /* AudioToolbox.framework */,
+				B7482D5920CC57B200EB637B /* AudioUnit.framework */,
+				B7482D2F20CB9ACD00EB637B /* CoreAudio.framework */,
+				B7482D2D20CB9AAF00EB637B /* AudioUnit.framework */,
+				B7482D2B20CB9A9600EB637B /* AudioToolbox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B7482D3820CC516500EB637B /* src */ = {
+			isa = PBXGroup;
+			children = (
+				B7482D3B20CC518900EB637B /* platform */,
+				B7482D3920CC516500EB637B /* envelope */,
+				B7482D3A20CC516500EB637B /* oscillators */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		B7482D3920CC516500EB637B /* envelope */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = envelope;
+			sourceTree = "<group>";
+		};
+		B7482D3A20CC516500EB637B /* oscillators */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = oscillators;
+			sourceTree = "<group>";
+		};
+		B7482D3B20CC518900EB637B /* platform */ = {
+			isa = PBXGroup;
+			children = (
+				B7482D3C20CC518900EB637B /* apple */,
+			);
+			path = platform;
+			sourceTree = "<group>";
+		};
+		B7482D3C20CC518900EB637B /* apple */ = {
+			isa = PBXGroup;
+			children = (
+				B7482D3D20CC51DE00EB637B /* AudioEngineObjC.h */,
+				B7482D3E20CC51DF00EB637B /* AudioEngineObjC.mm */,
+				B74F44FB20C3BC6800E894D2 /* AudioHAL.cpp */,
+				B74F44FC20C3BC6800E894D2 /* AudioHAL.hpp */,
+				B74F44F720C3BB8500E894D2 /* AudioEngine.swift */,
+			);
+			path = apple;
+			sourceTree = "<group>";
+		};
+		B7482D4520CC53F000EB637B /* PocketSynthie */ = {
+			isa = PBXGroup;
+			children = (
+				B7482D4620CC53F000EB637B /* AppDelegate.swift */,
+				B7482D4820CC53F000EB637B /* ViewController.swift */,
+				B7482D4A20CC53F000EB637B /* Main.storyboard */,
+				B7482D4D20CC53F000EB637B /* Assets.xcassets */,
+				B7482D4F20CC53F000EB637B /* LaunchScreen.storyboard */,
+				B7482D5220CC53F000EB637B /* Info.plist */,
+			);
+			path = PocketSynthie;
+			sourceTree = "<group>";
+		};
 		B74F44DB20C3BB3500E894D2 = {
 			isa = PBXGroup;
 			children = (
+				B7482D3620CC514500EB637B /* README.md */,
+				B7482D3820CC516500EB637B /* src */,
+				B74F44F920C3BC5800E894D2 /* AudioHAL */,
 				B74F44E620C3BB3500E894D2 /* Synthie */,
+				B7482D4520CC53F000EB637B /* PocketSynthie */,
 				B74F44E520C3BB3500E894D2 /* Products */,
+				B7482D2A20CB9A9600EB637B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -46,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				B74F44E420C3BB3500E894D2 /* Synthie.app */,
+				B7482D4420CC53F000EB637B /* PocketSynthie.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -53,6 +174,7 @@
 		B74F44E620C3BB3500E894D2 /* Synthie */ = {
 			isa = PBXGroup;
 			children = (
+				B74F44FA20C3BC6700E894D2 /* Synthie-Bridging-Header.h */,
 				B74F44E720C3BB3500E894D2 /* AppDelegate.swift */,
 				B74F44E920C3BB3500E894D2 /* ViewController.swift */,
 				B74F44EB20C3BB3500E894D2 /* Assets.xcassets */,
@@ -63,9 +185,33 @@
 			path = Synthie;
 			sourceTree = "<group>";
 		};
+		B74F44F920C3BC5800E894D2 /* AudioHAL */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AudioHAL;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B7482D4320CC53F000EB637B /* PocketSynthie */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7482D5320CC53F000EB637B /* Build configuration list for PBXNativeTarget "PocketSynthie" */;
+			buildPhases = (
+				B7482D4020CC53F000EB637B /* Sources */,
+				B7482D4120CC53F000EB637B /* Frameworks */,
+				B7482D4220CC53F000EB637B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PocketSynthie;
+			productName = PocketSynthie;
+			productReference = B7482D4420CC53F000EB637B /* PocketSynthie.app */;
+			productType = "com.apple.product-type.application";
+		};
 		B74F44E320C3BB3500E894D2 /* Synthie */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B74F44F420C3BB3500E894D2 /* Build configuration list for PBXNativeTarget "Synthie" */;
@@ -93,8 +239,13 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Ussher Press";
 				TargetAttributes = {
+					B7482D4320CC53F000EB637B = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					B74F44E320C3BB3500E894D2 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -113,15 +264,27 @@
 			projectRoot = "";
 			targets = (
 				B74F44E320C3BB3500E894D2 /* Synthie */,
+				B7482D4320CC53F000EB637B /* PocketSynthie */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B7482D4220CC53F000EB637B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7482D5120CC53F000EB637B /* LaunchScreen.storyboard in Resources */,
+				B7482D4E20CC53F000EB637B /* Assets.xcassets in Resources */,
+				B7482D4C20CC53F000EB637B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B74F44E220C3BB3500E894D2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7482D3720CC514500EB637B /* README.md in Resources */,
 				B74F44EC20C3BB3500E894D2 /* Assets.xcassets in Resources */,
 				B74F44EF20C3BB3500E894D2 /* Main.storyboard in Resources */,
 			);
@@ -130,11 +293,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B7482D4020CC53F000EB637B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7482D5820CC544000EB637B /* AudioHAL.cpp in Sources */,
+				B7482D5720CC544000EB637B /* AudioEngineObjC.mm in Sources */,
+				B7482D5620CC543D00EB637B /* AudioEngine.swift in Sources */,
+				B7482D4920CC53F000EB637B /* ViewController.swift in Sources */,
+				B7482D4720CC53F000EB637B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B74F44E020C3BB3500E894D2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B74F44FD20C3BC6800E894D2 /* AudioHAL.cpp in Sources */,
+				B74F44F820C3BB8500E894D2 /* AudioEngine.swift in Sources */,
 				B74F44EA20C3BB3500E894D2 /* ViewController.swift in Sources */,
+				B7482D3F20CC51DF00EB637B /* AudioEngineObjC.mm in Sources */,
 				B74F44E820C3BB3500E894D2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,6 +320,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		B7482D4A20CC53F000EB637B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B7482D4B20CC53F000EB637B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B7482D4F20CC53F000EB637B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B7482D5020CC53F000EB637B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		B74F44ED20C3BB3500E894D2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -153,6 +347,45 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B7482D5420CC53F000EB637B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NQ4H433LH4;
+				INFOPLIST_FILE = PocketSynthie/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ussherpress.PocketSynthie;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Synthie/Synthie-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B7482D5520CC53F000EB637B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NQ4H433LH4;
+				INFOPLIST_FILE = PocketSynthie/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ussherpress.PocketSynthie;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Synthie/Synthie-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		B74F44F220C3BB3500E894D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -263,6 +496,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Synthie/Synthie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -271,6 +505,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ussherpress.Synthie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Synthie/Synthie-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -279,6 +515,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Synthie/Synthie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -287,6 +524,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ussherpress.Synthie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Synthie/Synthie-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -294,6 +532,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B7482D5320CC53F000EB637B /* Build configuration list for PBXNativeTarget "PocketSynthie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7482D5420CC53F000EB637B /* Debug */,
+				B7482D5520CC53F000EB637B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B74F44DF20C3BB3500E894D2 /* Build configuration list for PBXProject "Synthie" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

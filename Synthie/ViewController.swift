@@ -9,6 +9,8 @@
 import Cocoa
 
 class ViewController: NSViewController {
+    let audioEngine = AudioEngine()
+    @IBOutlet weak var playButton: NSButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,13 @@ class ViewController: NSViewController {
         }
     }
 
-
+    @IBAction func didTapPlay(sender: AnyObject?) {
+        if !audioEngine.isPlaying {
+            audioEngine.playTone()
+            playButton.title = "Stop"
+        } else {
+            audioEngine.stopTone()
+            playButton.title = "Play"
+        }
+    }
 }
-
