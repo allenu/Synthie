@@ -1,4 +1,13 @@
 
+# 2018/06/10 Sun
+
+Yesterday night I thought about how to define the basic data structures for the music player.
+I'm favoring a functional style, so there are only a few moving pieces (i.e. a handful of
+mutating data) and data is just transformed via a few functions.
+
+It's early in the morning and I just spent about an hour writing the various structs
+and funcs that are needed by Synthie, all in synthie.h and synthie.cpp.
+
 # 2018/06/09 Sat
 
 I've created a quick blog post and I'm uploading this code to github for the first time.

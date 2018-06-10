@@ -3,6 +3,8 @@
 [x] get simple sine tone working on Mac again
 [x] get simple sine tone working on iOS again
 
+[ ] Define structures
+
 [ ] Play tones
     [ ] Set up oscillator code
         [ ] write sin, triangle, sawtooth, pulse waves
