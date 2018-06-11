@@ -8,6 +8,20 @@ mutating data) and data is just transformed via a few functions.
 It's early in the morning and I just spent about an hour writing the various structs
 and funcs that are needed by Synthie, all in synthie.h and synthie.cpp.
 
+I spent a few hours writing up and testing the majority of the song playback code. Of course,
+I had a few bugs along the way. Instead of unit testing, though, I just went into live testing
+in the app. :) I have to admit that as long as you know what you're doing, it's quite a bit 
+faster than writing individual unit tests for everything.
+
+Anyway, functionally, it works just as I would like. There were some design details that were
+a little trickier. Specifically, it took some thinking to work out how to extract the commands
+to send to the synthesizer from the last song player state. Eventually I figured out a way to
+decouple the two by just having two separate structs for a "pattern command", one that is
+produced by the song player and one that is consumed by the synthesizer.
+
+Of course, I'll try to explain all of this in the blog posts!
+
+
 # 2018/06/09 Sat
 
 I've created a quick blog post and I'm uploading this code to github for the first time.

@@ -8,6 +8,7 @@
 
 #import "AudioEngineObjC.h"
 #import "AudioHAL.hpp"
+#import "SynthieHALUnit.hpp"
 
 @implementation AudioEngineObjC {
     CAudioHAL *_audioHAL;
@@ -18,6 +19,7 @@
     
     if (self) {
         _audioHAL = new CAudioHAL();
+        _audioHAL->SetAudioUnit(new SynthieHALUnit());
     }
     
     return self;

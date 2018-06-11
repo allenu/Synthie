@@ -141,7 +141,7 @@ m_fPlaybackEnabled(false)
 #endif
     
     // For testing
-    m_audioUnit = new CToneUnit();
+//    m_audioUnit = new CToneUnit();
     
 }
 

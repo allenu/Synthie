@@ -33,4 +33,8 @@ class ViewController: NSViewController {
             playButton.title = "Play"
         }
     }
+    
+    @IBAction func didTapTest(sender: AnyObject?) {
+        test_song()
+    }
 }

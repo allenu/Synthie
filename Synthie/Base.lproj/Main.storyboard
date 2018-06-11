@@ -720,10 +720,22 @@
                                     <action selector="didTapPlayWithSender:" target="XfG-lQ-9wD" id="Fkh-zH-1Ve"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ThS-RU-92p">
+                                <rect key="frame" x="80" y="222" width="66" height="32"/>
+                                <buttonCell key="cell" type="push" title="Test" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qve-lP-Jbm">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="didTapTestWithSender:" target="XfG-lQ-9wD" id="cU4-H8-cxw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="gMq-ai-9N6" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="5Zw-d0-vK1"/>
                             <constraint firstItem="gMq-ai-9N6" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="6bb-87-Xao"/>
+                            <constraint firstItem="ThS-RU-92p" firstAttribute="leading" secondItem="gMq-ai-9N6" secondAttribute="trailing" constant="12" id="CQb-yU-Inr"/>
+                            <constraint firstItem="ThS-RU-92p" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="s8r-Gs-Ocf"/>
                         </constraints>
                     </view>
                     <connections>
