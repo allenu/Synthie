@@ -21,6 +21,12 @@ produced by the song player and one that is consumed by the synthesizer.
 
 Of course, I'll try to explain all of this in the blog posts!
 
+Some things I'll need to fix up still:
+[ ] better bounds checking on everything
+[ ] instead of beat_index for pattern events, it should be line_index. I should also specify how many lines per beat as well.
+[ ] write a simple script to convert a text file to a json definition of the song
+[ ] load a song from json
+
 
 # 2018/06/09 Sat
 

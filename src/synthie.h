@@ -28,9 +28,8 @@ typedef struct {
     double freq;
 
     // TODO:
-    double phase;
-
-    double gain_factor;
+//    double phase;
+//    double gain_factor;
     double note_play_time;
     bool note_released;
     double note_release_time;
@@ -42,11 +41,7 @@ typedef struct {
     int num_channels;
     // TODO: avoid a fixed size here?
     synthesizer_channel_t channels[MAX_CHANNELS];
-
-    double sample_rate; // TODO: unnecessary?
-    int sample_index;   // unnecessary?
 } synthesizer_state_t;
-
 
 typedef enum {
     kPlayTone = 0,
@@ -132,4 +127,3 @@ void get_song_player_samples(
         const int num_samples,
         double *samples,
         song_player_state_t *next_state);
-
