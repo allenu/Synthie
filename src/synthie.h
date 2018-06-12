@@ -89,37 +89,44 @@ typedef struct {
     bool repeats;
     double delay_between_repetition;
     // double gain;
-} song_playback_options_t;
+} song_reader_options_t;
 
 typedef struct {
-    song_playback_options_t song_playback_options;
+    song_reader_options_t song_reader_options;
     bool done;
 
-    double pattern_start_time; // when we started playing this pattern
-    int pattern_index;
-    int beat_index;
+    double pattern_start_time;  // when we started playing this pattern
+    int pattern_index;          // which pattern we're playing in the song
+    int beat_index;             // which note in the pattern we've processed
 
-    // Cache of the index of the next command to execute in the pattern.
-    // This is just an optimization so that we don't search through the
-    // pattern_commands to find the next command with the same beat_index
+    // Cache of the index of the next command to execute in the current
+    // pattern. This is just an optimization so that we don't search through 
+    // the pattern_commands to find the next command with the same beat_index
     // as we need.
     int next_pattern_command_index;
 
     // Which commands to execute for this beat. Is just a pointer into 
-    // pattern_commands for the given pattern.
+    // pattern_commands for the given pattern in the song. These are all 
+    // the commands for the current note.
     int num_pattern_commands;
     pattern_command_t *pattern_commands;
-} song_playback_state_t;
+} song_reader_state_t;
 
+// A song player uses a song reader to read a song and get pattern commands from it.
+// These pattern commands are then fed to a synthesizer, which provides the audio
+// samples.
 typedef struct {
-    double time;
-    song_playback_state_t song_playback_state;
+    song_reader_state_t song_reader_state;
     synthesizer_state_t synthesizer_state;
+    double time;
 } song_player_state_t;
 
 // API
+
 song_player_state_t create_song_player_state(int num_channels);
 
+// Given a song player and a song, get the audio samples for a given sample rate.
+// This also produces the next state for the player to feed in for the next time.
 void get_song_player_samples(
         const song_t & song,
         song_player_state_t prev_state, 
@@ -127,3 +134,4 @@ void get_song_player_samples(
         const int num_samples,
         double *samples,
         song_player_state_t *next_state);
+

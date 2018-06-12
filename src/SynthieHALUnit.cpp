@@ -68,7 +68,7 @@ void SynthieHALUnit::GetFrames(Float32 *out, UInt32 numSamples, int sampleRate) 
     }
     delete [] temp_buffer;
     
-    if (next_state.song_playback_state.beat_index == 0) {
+    if (next_state.song_reader_state.beat_index == 0) {
         printf("%.2f: %.2f\n", next_state.time, temp_buffer[0]);
     }
     

@@ -29,77 +29,89 @@ double f_oscillator_sample(oscillator_t oscillator, double freq, double start_ti
     }
 }
 
-double f_envelope_gain(envelope_t envelope, double note_play_time, bool note_released, double note_release_time, double time) {
-    // Determine where we are in ADSR
-    // Calculate gain based on A-D, or D-S, or S, or R
-    // Note: note_play_time, note_release_time, and time are relative to the song playback time, but 
-    // envelope times are relative to a t=0.0 starting point, when attack phase begins, so
-    // we must normalize to that timeline below.
-    // All calculations assume a linear transition from start of Attack to start of Decay,
-    // start of Decay to start of Sustain, and start of Release to end of Release.
-
-    // Normalize to envelope time
-    double envelope_time = time - note_play_time;
-
-    if (envelope_time < 0.0) {
+// Return the gain (from 0.0 to 1.0) for a given time within an envelope.
+//
+// - envelope: which envelope to use for ADSR data
+// - note_released: is true if the note was released at some point
+// - note_release_time: only applies if note_released is true
+// - time: time on the envelope timeline, where 0.0 is the start of attack, in seconds
+// 
+double f_envelope_gain(const envelope_t & envelope, bool note_released, double note_release_time, double time) {
+    if (time < 0.0) {
         // Hasn't started playing yet
         return 0.0;
     }
 
-    // Attack time is the same as envelope time, just assign to var for readability.
-    double attack_time = envelope_time;
-    if (attack_time < envelope.attack_time) {
-        // Still in attack phase
-        double gain = envelope.attack_gain * attack_time / envelope.attack_time;
+    // See if we're in the attack phase
+    if (time < envelope.attack_time) {
+        double gain = envelope.attack_gain * time / envelope.attack_time;
         return gain;
     }
 
-    // TODO: We'll support non-sustainable later. Assume everything
-    // sustains for now.
+    // Normalize to start of decay time, which is the end of attack_time
+    double decay_time = time - envelope.attack_time;
 
-    // Normalize to start of decay time
-    double decay_time = attack_time - envelope.attack_time;
-
+    // See if we're in the decay phase
     if (decay_time < envelope.decay_time) {
-        // Still decaying
         double gain_drop = (envelope.attack_gain - envelope.sustain_gain);
         double gain = envelope.attack_gain - gain_drop * (decay_time / envelope.decay_time);
         return gain;
     }
 
     // If we got past decay phase, we must either be sustaining, releasing, or no longer playing
+    // TODO: We'll support non-sustainable later. Assume everything
+    // sustains for now.
 
+    // See if we're still in the sustain phase
     if (!note_released || time < note_release_time) {
-        // Still sustaining
         return envelope.sustain_gain;
     }
 
-    // If got here, we must be releasing or no longer playing
+    // If got here, we must be releasing or no longer playing (post-release)
 
     // Normalize to release time
     double release_time = time - note_release_time;
 
+    // See if we're still releasing
     if (release_time < envelope.release_time) {
-        // Still releasing
         double gain_drop = envelope.sustain_gain;
         double gain = envelope.sustain_gain - gain_drop * (release_time / envelope.release_time);
         return gain;
     }
 
-    // If got here, we must no longer be playing the note as we released it fully
+    // We must be in post-release phase
     return 0.0;
 }
 
-// Get sample for a given instrument
-double f_instrument_sample(instrument_t instrument, double freq, double note_play_time, bool note_released, double note_release_time, double time) {
+// Return sample for a given instrument at a given time.
+//
+// - instrument: which instrument (defines oscillator and envelope)
+// - freq: frequency of the tone
+// - note_play_time: when the note started playing
+// - note_released: true if note was released at some point
+// - note_release_time: time of when note was released (only applies if note_released is true)
+// - time: time in seconds of the sample to get
+//
+double f_instrument_sample(const instrument_t & instrument, double freq, double note_play_time, bool note_released, double note_release_time, double time) {
     double oscillator_sample = f_oscillator_sample(instrument.oscillator, freq, note_play_time, time);
-    double envelope_gain = f_envelope_gain(instrument.envelope, note_play_time, note_released, note_release_time, time);
+
+    // Translate time into a time in the envelope's timeline (where time 0.0 is where the note starts playing).
+    double envelope_time = time - note_play_time;
+    double envelope_note_release_time = note_release_time - note_play_time;
+    double envelope_gain = f_envelope_gain(instrument.envelope, note_released, envelope_note_release_time, envelope_time);
 
     double sample = oscillator_sample * envelope_gain;
     return sample;
 }
 
-double f_synthesizer_sample(synthesizer_state_t synthesizer, double time) {
+// Get a sample for the given synthesizer state at a given time.
+//
+// - synthesizer_state: the synthesizer state, which specifies how many channels there are, what instrument they're playing,
+//   at what frequency, what envelope they're using, and when the tone started (and possibly ended) playing.
+// - time: the time, in seconds, of the sample to get
+//
+double f_synthesizer_sample(const synthesizer_state_t & synthesizer, double time) {
+    // Our "mixing" of audio is super simple: just take the average of all of the channels
     double avg_sample = 0.0;
     for (int i=0; i < synthesizer.num_channels; ++i) {
         const synthesizer_channel_t *channel = &synthesizer.channels[i];
@@ -115,9 +127,17 @@ double f_synthesizer_sample(synthesizer_state_t synthesizer, double time) {
     return avg_sample;
 }
 
-// Given a set of synth commands, update the synth state.
-synthesizer_state_t f_next_synthesizer_state(synthesizer_state_t prev_state, 
-        int num_commands, synthesizer_command_t *commands) {
+// Given a set of synth commands, update the synth state. The only way to change a synth's state is through
+// this function.
+//
+// - prev_state: the previous synthesizer state
+// - num_commands: how many commands to execute on the synth
+// - commands: an array of the commands that will change the synth state
+//
+synthesizer_state_t f_next_synthesizer_state(const synthesizer_state_t & prev_state, 
+        int num_commands, 
+        const synthesizer_command_t *commands) {
+
     synthesizer_state_t next_state = prev_state;
 
     for (int i=0; i < num_commands; ++i) {
@@ -143,11 +163,15 @@ synthesizer_state_t f_next_synthesizer_state(synthesizer_state_t prev_state,
     return next_state;
 }
 
-song_playback_state_t f_next_song_playback_state(song_playback_state_t prev_state, 
-        const song_t & song,
-        double time) {
-    song_playback_state_t next_state = prev_state;
-    // Pattern commands don't transfer from state to state
+// Given a song reader state, move the reader to the new time.
+//
+// - prev_state: the previous song reader state
+// - song: the song being read
+// - time: the new time to move the reader to
+//
+song_reader_state_t f_next_song_reader_state(const song_reader_state_t & prev_state, const song_t & song, double time) {
+    song_reader_state_t next_state = prev_state;
+    // Pattern commands don't transfer from state to state, so we must clear these out
     next_state.pattern_commands = nullptr;
     next_state.num_pattern_commands = 0;
 
@@ -184,7 +208,7 @@ song_playback_state_t f_next_song_playback_state(song_playback_state_t prev_stat
             next_pattern_command_index = 0;
 
             if (next_state.pattern_index == song.num_patterns) {
-                if (prev_state.song_playback_options.repeats) {
+                if (prev_state.song_reader_options.repeats) {
                     next_state.pattern_index = 0;
                 } else {
                     next_state.done = true;
@@ -227,13 +251,23 @@ song_playback_state_t f_next_song_playback_state(song_playback_state_t prev_stat
     return next_state;
 }
 
-synthesizer_command_t *f_synthesizer_commands_from_pattern_commands(
-                                                                    int num_pattern_commands,
-                                                                    pattern_command_t *pattern_commands,
-                                                                    double pattern_start_time,
-                                                                    double beat_period,
-                                                                    int num_instruments,
-                                                                    instrument_t *instruments) {
+// Convert a set of pattern commands into synthesizer commands. The synthesizer doesn't
+// know anything about beat indexes, beat periods or what the instruments are, so this
+// translates those concepts into ones that the synthesizer understands.
+//
+// - num_pattern_commands, pattern_commands: the number of and the pattern commands themselves
+// - pattern_start_time: when this pattern began (time of beat 0)
+// - beat_period: how long each beat is
+// - num_instruments, instruments: the number of and the actual instruments themselves
+//
+// Caller must delete [] the returned array.
+synthesizer_command_t * f_synthesizer_commands_from_pattern_commands(
+        int num_pattern_commands, 
+        const pattern_command_t *pattern_commands,
+        double pattern_start_time,
+        double beat_period,
+        int num_instruments,
+        const instrument_t *instruments) {
     
     synthesizer_command_t *synthesizer_commands = new synthesizer_command_t[num_pattern_commands];
     
@@ -250,30 +284,35 @@ synthesizer_command_t *f_synthesizer_commands_from_pattern_commands(
     return synthesizer_commands;
 }
 
-song_player_state_t f_next_song_player_state(song_player_state_t prev_state, const song_t & song, double time) {
-    song_playback_state_t next_song_playback_state = 
-        f_next_song_playback_state(prev_state.song_playback_state, song, time);
+// Given a song player state, return the next song player state, given the song being played and the current time.
+song_player_state_t f_next_song_player_state(
+        const song_player_state_t & prev_state, 
+        const song_t & song, 
+        double time) {
+
+    song_reader_state_t next_song_reader_state = 
+        f_next_song_reader_state(prev_state.song_reader_state, song, time);
 
     synthesizer_state_t next_synthesizer_state;
 
-    if (next_song_playback_state.num_pattern_commands > 0) {
+    if (next_song_reader_state.num_pattern_commands > 0) {
         // We have pattern commands that we must apply to the synthesizer
 
-        const pattern_t *current_pattern = &song.patterns[next_song_playback_state.pattern_index];
+        const pattern_t *current_pattern = &song.patterns[next_song_reader_state.pattern_index];
         double beat_period = 60.0 / current_pattern->bpm;
 
         // First convert them to synthesizer commands
         synthesizer_command_t *synthesizer_commands = f_synthesizer_commands_from_pattern_commands(
-            next_song_playback_state.num_pattern_commands, 
-            next_song_playback_state.pattern_commands,
-            next_song_playback_state.pattern_start_time,
+            next_song_reader_state.num_pattern_commands, 
+            next_song_reader_state.pattern_commands,
+            next_song_reader_state.pattern_start_time,
             beat_period,
             song.num_instruments,
             song.instruments);
 
         // Apply them to the synthesizer to get a new state
         next_synthesizer_state = f_next_synthesizer_state(prev_state.synthesizer_state,
-            next_song_playback_state.num_pattern_commands,
+            next_song_reader_state.num_pattern_commands,
             synthesizer_commands);
 
         delete [] synthesizer_commands;
@@ -283,17 +322,18 @@ song_player_state_t f_next_song_player_state(song_player_state_t prev_state, con
 
     song_player_state_t next_state;
     next_state.time = time;
-    next_state.song_playback_state = next_song_playback_state;
+    next_state.song_reader_state = next_song_reader_state;
     next_state.synthesizer_state = next_synthesizer_state;
 
     return next_state;
 }
 
+// Create a new song player from scratch.
 song_player_state_t create_song_player_state(int num_channels) {
     song_player_state_t song_player_state = { 0 };
 
-    song_player_state.song_playback_state.song_playback_options.repeats = true;
-    song_player_state.song_playback_state.pattern_index = -1;
+    song_player_state.song_reader_state.song_reader_options.repeats = true;
+    song_player_state.song_reader_state.pattern_index = -1;
     song_player_state.synthesizer_state.num_channels = num_channels;
 
     return song_player_state;
@@ -315,7 +355,7 @@ void get_song_player_samples(
     double prev_state_time = prev_state.time;
 
     for (int i=0; i < num_samples; ++i) {
-        if (prev_state.song_playback_state.done) {
+        if (prev_state.song_reader_state.done) {
             samples[i] = 0.0;
         } else {
             double time = prev_state_time + ((i+1) * sample_period);
@@ -328,7 +368,7 @@ void get_song_player_samples(
             prev_state = *next_state;
         }
     }
-    if (prev_state.song_playback_state.done) {
+    if (prev_state.song_reader_state.done) {
         *next_state = prev_state;
     }
 }
