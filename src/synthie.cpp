@@ -21,6 +21,9 @@ double f_oscillator_sample(oscillator_t oscillator, double freq, double start_ti
         case kSawtoothWave:
             return sawtooth(theta);
 
+        case kNoiseWave:
+            return noisewave(theta);
+
         case kSilence:
             return 0.0;
 

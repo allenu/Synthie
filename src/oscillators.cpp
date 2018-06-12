@@ -1,4 +1,5 @@
 #include <math.h>
+#include <stdlib.h>
 
 // Normalize an angle theta from 0.0 to 2PI
 double normalize_angle(double theta) {
@@ -49,4 +50,15 @@ double squarewave(double theta, double duty_cycle) {
         return 1.0;
     else
         return -1.0;   
+}
+
+double noisewave(double theta) {
+    theta = normalize_angle(theta);
+
+    double sample = squarewave(theta, 0.5) * sin(theta);
+    double randomGain = (rand() % 1000) / 1000.0;
+    
+    sample *= randomGain;
+    
+    return sample;
 }

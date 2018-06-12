@@ -4,6 +4,7 @@ typedef enum {
     kTriangleWave,
     kSquareWave,
     kSawtoothWave,
+    kNoiseWave,
 } oscillator_t;
 
 typedef struct {
