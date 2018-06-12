@@ -8,44 +8,60 @@
 
 #include "SynthieHALUnit.hpp"
 
+static double s_notes[12] = {16.35, 17.32, 18.35, 19.45,
+    20.60,21.83,23.12,24.50,
+    25.96,27.50,29.14,30.87};
+
+#define Note_C   s_notes[0]*16
+#define Note_D   s_notes[2]*16
+#define Note_E   s_notes[4]*16
+#define Note_F   s_notes[5]*16
+#define Note_G   s_notes[7]*16
+#define Note_A   s_notes[9]*16
+#define Note_B   s_notes[10]*16
+#define Note_C2  s_notes[11]*16
+
+static instrument_t s_instruments[] = {
+    { kSquareWave,   { 0.01, 0.5, 0.01, 0.3, 0.5 } },
+    { kTriangleWave,     { 0.025, 1.0, 0.025, 0.8, 0.5 } },
+    { kNoiseWave,    { 0.025, 0.7, 0.025, 0.5, 0.05 } },
+};
+
+#define Bass_Instrument 0
+#define Horn_Instrument 1
+#define Snare_Instrument 2
+
+static pattern_command_t s_pattern0_commands[] = {
+    pattern_command_t { 0, kPlayTone, Note_C, 0, Bass_Instrument },
+    pattern_command_t { 0, kPlayTone, Note_C, 1, Horn_Instrument },
+    pattern_command_t { 1, kPlayTone, Note_E, 2, Horn_Instrument },
+    pattern_command_t { 2, kPlayTone, Note_C, 0, Bass_Instrument },
+    pattern_command_t { 2, kPlayTone, Note_C, 3, Snare_Instrument },
+    pattern_command_t { 2, kReleaseTone, 0.0, 1, 0 },
+    pattern_command_t { 3, kReleaseTone, 0.0, 2, 0 },
+    pattern_command_t { 3, kReleaseTone, 0.0, 3, 0 },
+    pattern_command_t { 4, kPlayTone, Note_F, 0, Bass_Instrument },
+    pattern_command_t { 4, kPlayTone, Note_F, 1, Horn_Instrument },
+    pattern_command_t { 5, kPlayTone, Note_A, 2, Horn_Instrument },
+    pattern_command_t { 6, kPlayTone, Note_F, 0, Bass_Instrument },
+    pattern_command_t { 6, kPlayTone, Note_C, 3, Snare_Instrument },
+    pattern_command_t { 7, kReleaseTone, 0.0, 1, 0 },
+    pattern_command_t { 7, kReleaseTone, 0.0, 2, 0 },
+    pattern_command_t { 7, kReleaseTone, 0.0, 3, 0 },
+};
+static pattern_t s_patterns[] = {
+    { 120.0, 8, sizeof(s_pattern0_commands)/sizeof(s_pattern0_commands[0]), s_pattern0_commands },
+};
+
 SynthieHALUnit::SynthieHALUnit() {
     song_t song = { 0 };
     
-    song.num_instruments = 1;
-    song.instruments = new instrument_t[1];
+    song.num_instruments = sizeof(s_instruments)/sizeof(s_instruments[0]);
+    song.instruments = s_instruments;
     
-    song.instruments[0].oscillator = kSineWave;
-    song.instruments[0].envelope.attack_time = 0.1;
-    song.instruments[0].envelope.attack_gain = 1.0;
-    song.instruments[0].envelope.decay_time = 0.05;
-    song.instruments[0].envelope.sustain_gain = 0.75;
-    song.instruments[0].envelope.release_time = 0.2;
-    
-    song.num_patterns = 1;
-    song.patterns = new pattern_t[1];
-    song.patterns[0].bpm = 120.0;
-    song.patterns[0].num_beats = 4;
-    song.patterns[0].num_pattern_commands = 4;
-    song.patterns[0].pattern_commands = new pattern_command_t[4];
-    song.patterns[0].pattern_commands[0].beat_index = 0;
-    song.patterns[0].pattern_commands[0].command_type = kPlayTone;
-    song.patterns[0].pattern_commands[0].freq = 440.0;
-    song.patterns[0].pattern_commands[0].channel = 0;
-    song.patterns[0].pattern_commands[0].instrument_index = 0;
-    song.patterns[0].pattern_commands[1].beat_index = 0;
-    song.patterns[0].pattern_commands[1].command_type = kPlayTone;
-    song.patterns[0].pattern_commands[1].freq = 350.0;
-    song.patterns[0].pattern_commands[1].channel = 1;
-    song.patterns[0].pattern_commands[2].instrument_index = 0;
-    song.patterns[0].pattern_commands[2].beat_index = 3;
-    song.patterns[0].pattern_commands[2].command_type = kReleaseTone;
-    song.patterns[0].pattern_commands[2].channel = 0;
-    song.patterns[0].pattern_commands[3].instrument_index = 0;
-    song.patterns[0].pattern_commands[3].beat_index = 3;
-    song.patterns[0].pattern_commands[3].command_type = kReleaseTone;
-    song.patterns[0].pattern_commands[3].channel = 1;
-
-    song.num_channels = 2;
+    song.num_patterns = sizeof(s_patterns)/sizeof(s_patterns[0]);
+    song.patterns = s_patterns;
+    song.num_channels = 4;
     
     _song = song;
     
@@ -67,10 +83,6 @@ void SynthieHALUnit::GetFrames(Float32 *out, UInt32 numSamples, int sampleRate) 
         out[2*i + 1] = temp_buffer[i]; // right
     }
     delete [] temp_buffer;
-    
-    if (next_state.song_reader_state.beat_index == 0) {
-        printf("%.2f: %.2f\n", next_state.time, temp_buffer[0]);
-    }
     
     _song_player_state = next_state;
     
