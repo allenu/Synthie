@@ -28,11 +28,26 @@
 		B7482D9820D2156400EB637B /* AudioEngineObjC.mm in Sources */ = {isa = PBXBuildFile; fileRef = B7482D9220D2156400EB637B /* AudioEngineObjC.mm */; };
 		B7482D9920D2156500EB637B /* AudioHAL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7482D9320D2156400EB637B /* AudioHAL.cpp */; };
 		B7482D9A20D2156500EB637B /* AudioHAL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7482D9320D2156400EB637B /* AudioHAL.cpp */; };
+		B7482DA620D21CBA00EB637B /* oscillators.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7482D7220D2150900EB637B /* oscillators.cpp */; };
+		B7482DA720D21CBA00EB637B /* synthie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7482D7B20D2150900EB637B /* synthie.cpp */; };
+		B7482DA920D21D7500EB637B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7482DA820D21D7400EB637B /* main.cpp */; };
 		B74F44E820C3BB3500E894D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F44E720C3BB3500E894D2 /* AppDelegate.swift */; };
 		B74F44EA20C3BB3500E894D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F44E920C3BB3500E894D2 /* ViewController.swift */; };
 		B74F44EC20C3BB3500E894D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B74F44EB20C3BB3500E894D2 /* Assets.xcassets */; };
 		B74F44EF20C3BB3500E894D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B74F44ED20C3BB3500E894D2 /* Main.storyboard */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B7482D9D20D21C8E00EB637B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B7482D2B20CB9A9600EB637B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -58,6 +73,8 @@
 		B7482D9220D2156400EB637B /* AudioEngineObjC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioEngineObjC.mm; sourceTree = "<group>"; };
 		B7482D9320D2156400EB637B /* AudioHAL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioHAL.cpp; sourceTree = "<group>"; };
 		B7482D9420D2156400EB637B /* AudioHAL.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AudioHAL.hpp; sourceTree = "<group>"; };
+		B7482D9F20D21C8E00EB637B /* GeneratePcm */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GeneratePcm; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7482DA820D21D7400EB637B /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../generate_pcm_file/main.cpp; sourceTree = "<group>"; };
 		B74F44E420C3BB3500E894D2 /* Synthie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Synthie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B74F44E720C3BB3500E894D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B74F44E920C3BB3500E894D2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +91,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7482D5C20CC57C700EB637B /* AudioToolbox.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7482D9C20D21C8E00EB637B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,12 +163,21 @@
 			path = AudioEngine;
 			sourceTree = "<group>";
 		};
+		B7482DA020D21C8E00EB637B /* GeneratePcm */ = {
+			isa = PBXGroup;
+			children = (
+				B7482DA820D21D7400EB637B /* main.cpp */,
+			);
+			path = GeneratePcm;
+			sourceTree = "<group>";
+		};
 		B74F44DB20C3BB3500E894D2 = {
 			isa = PBXGroup;
 			children = (
 				B7482D7120D2150900EB637B /* src */,
 				B74F44E620C3BB3500E894D2 /* Synthie */,
 				B7482D4520CC53F000EB637B /* PocketSynthie */,
+				B7482DA020D21C8E00EB637B /* GeneratePcm */,
 				B74F44E520C3BB3500E894D2 /* Products */,
 				B7482D2A20CB9A9600EB637B /* Frameworks */,
 			);
@@ -155,6 +188,7 @@
 			children = (
 				B74F44E420C3BB3500E894D2 /* Synthie.app */,
 				B7482D4420CC53F000EB637B /* PocketSynthie.app */,
+				B7482D9F20D21C8E00EB637B /* GeneratePcm */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -196,6 +230,23 @@
 			productReference = B7482D4420CC53F000EB637B /* PocketSynthie.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B7482D9E20D21C8E00EB637B /* GeneratePcm */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7482DA520D21C8E00EB637B /* Build configuration list for PBXNativeTarget "GeneratePcm" */;
+			buildPhases = (
+				B7482D9B20D21C8E00EB637B /* Sources */,
+				B7482D9C20D21C8E00EB637B /* Frameworks */,
+				B7482D9D20D21C8E00EB637B /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GeneratePcm;
+			productName = GeneratePcm;
+			productReference = B7482D9F20D21C8E00EB637B /* GeneratePcm */;
+			productType = "com.apple.product-type.tool";
+		};
 		B74F44E320C3BB3500E894D2 /* Synthie */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B74F44F420C3BB3500E894D2 /* Build configuration list for PBXNativeTarget "Synthie" */;
@@ -227,6 +278,10 @@
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
+					B7482D9E20D21C8E00EB637B = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					B74F44E320C3BB3500E894D2 = {
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 0920;
@@ -249,6 +304,7 @@
 			targets = (
 				B74F44E320C3BB3500E894D2 /* Synthie */,
 				B7482D4320CC53F000EB637B /* PocketSynthie */,
+				B7482D9E20D21C8E00EB637B /* GeneratePcm */,
 			);
 		};
 /* End PBXProject section */
@@ -288,6 +344,16 @@
 				B7482D8020D2150900EB637B /* oscillators.cpp in Sources */,
 				B7482D4720CC53F000EB637B /* AppDelegate.swift in Sources */,
 				B7482D9620D2156400EB637B /* AudioEngine.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7482D9B20D21C8E00EB637B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7482DA720D21CBA00EB637B /* synthie.cpp in Sources */,
+				B7482DA620D21CBA00EB637B /* oscillators.cpp in Sources */,
+				B7482DA920D21D7500EB637B /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +438,24 @@
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B7482DA320D21C8E00EB637B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NQ4H433LH4;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B7482DA420D21C8E00EB637B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NQ4H433LH4;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -526,6 +610,15 @@
 			buildConfigurations = (
 				B7482D5420CC53F000EB637B /* Debug */,
 				B7482D5520CC53F000EB637B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B7482DA520D21C8E00EB637B /* Build configuration list for PBXNativeTarget "GeneratePcm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7482DA320D21C8E00EB637B /* Debug */,
+				B7482DA420D21C8E00EB637B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

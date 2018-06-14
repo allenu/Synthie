@@ -8,6 +8,16 @@ For more information, read blog posts here:
 
 This README file will be updated as the blog posts come out and as new functionality is added.
 
+# Try it out
+
+After cloning:
+
+    cd examples/generate_pcm_file
+    make
+    make test
+    make play
+
+You'll need sox installed to run the "make play" part.
 
 # Some quick background
 

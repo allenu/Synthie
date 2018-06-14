@@ -13,6 +13,7 @@
 [ ] support gain change command
 [ ] support phase change
 
+[x] Write platform-agnostic test that spits out a PCM file that you can play with sox
 [ ] Add simple tone playback for Raspberry Pi
 [ ] Clean up AudioHAL so it's more functional and uses less mutable data
 
