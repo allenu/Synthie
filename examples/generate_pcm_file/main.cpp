@@ -1,4 +1,3 @@
-
 #include "synthie.h"
 #include <stdio.h>
 
@@ -16,7 +15,7 @@ static double s_notes[12] = {16.35, 17.32, 18.35, 19.45,
 #define Note_C2  s_notes[11]*16
 
 static instrument_t s_instruments[] = {
-    { kSquareWave,   { 0.01, 0.2, 0.01, 0.3, 0.5 } },
+    { kSquareWave,   { 0.01, 0.9, 0.01, 0.8, 0.5 } },
     { kTriangleWave, { 0.025, 1.0, 0.025, 0.8, 0.5 } },
     { kNoiseWave,    { 0.025, 0.7, 0.025, 0.5, 0.05 } },
 };
@@ -26,25 +25,28 @@ static instrument_t s_instruments[] = {
 #define Snare_Instrument 2
 
 static pattern_command_t s_pattern0_commands[] = {
-    pattern_command_t { 0, kPlayTone, Note_C, 0, Bass_Instrument },
-    pattern_command_t { 0, kPlayTone, Note_C, 1, Horn_Instrument },
-    pattern_command_t { 1, kPlayTone, Note_E, 2, Horn_Instrument },
-    pattern_command_t { 2, kPlayTone, Note_C, 0, Bass_Instrument },
-    pattern_command_t { 2, kPlayTone, Note_C, 3, Snare_Instrument },
-    pattern_command_t { 2, kReleaseTone, 0.0, 1, 0 },
-    pattern_command_t { 3, kReleaseTone, 0.0, 2, 0 },
-    pattern_command_t { 3, kReleaseTone, 0.0, 3, 0 },
-    pattern_command_t { 4, kPlayTone, Note_F, 0, Bass_Instrument },
-    pattern_command_t { 4, kPlayTone, Note_F, 1, Horn_Instrument },
-    pattern_command_t { 5, kPlayTone, Note_A, 2, Horn_Instrument },
-    pattern_command_t { 6, kPlayTone, Note_F, 0, Bass_Instrument },
-    pattern_command_t { 6, kPlayTone, Note_C, 3, Snare_Instrument },
-    pattern_command_t { 7, kReleaseTone, 0.0, 1, 0 },
-    pattern_command_t { 7, kReleaseTone, 0.0, 2, 0 },
-    pattern_command_t { 7, kReleaseTone, 0.0, 3, 0 },
+    pattern_command_t { 0, kPatternAction_PlayTone, Note_C, 0, Horn_Instrument },
+    pattern_command_t { 0, kPatternAction_PlayTone, Note_E, 1, Horn_Instrument },
+    pattern_command_t { 0, kPatternAction_PlayTone, Note_G, 2, Horn_Instrument },
+    pattern_command_t { 0, kPatternAction_PlayTone, Note_C, 3, Bass_Instrument },
+
+    pattern_command_t { 1, kPatternAction_ReleaseTone, 0, 0, -1 },
+    pattern_command_t { 1, kPatternAction_ReleaseTone, 0, 1, -1 },
+    pattern_command_t { 1, kPatternAction_PlayTone, Note_C, 2, Snare_Instrument },
+    pattern_command_t { 1, kPatternAction_PlayTone, Note_C, 3, Bass_Instrument },
+
+    pattern_command_t { 2, kPatternAction_PlayTone, Note_C, 0, Horn_Instrument },
+    pattern_command_t { 2, kPatternAction_PlayTone, Note_F, 1, Horn_Instrument },
+    pattern_command_t { 2, kPatternAction_PlayTone, Note_G, 2, Horn_Instrument },
+    pattern_command_t { 2, kPatternAction_PlayTone, Note_F, 3, Bass_Instrument },
+
+    pattern_command_t { 3, kPatternAction_ReleaseTone, 0, 0, -1 },
+    pattern_command_t { 3, kPatternAction_ReleaseTone, 0, 1, -1 },
+    pattern_command_t { 3, kPatternAction_PlayTone, Note_C, 2, Snare_Instrument },
+    pattern_command_t { 3, kPatternAction_PlayTone, Note_C, 3, Bass_Instrument },
 };
 static pattern_t s_patterns[] = {
-    { 120.0, 8, sizeof(s_pattern0_commands)/sizeof(s_pattern0_commands[0]), s_pattern0_commands },
+    { 160.0, 4, sizeof(s_pattern0_commands)/sizeof(s_pattern0_commands[0]), s_pattern0_commands },
 };
 
 

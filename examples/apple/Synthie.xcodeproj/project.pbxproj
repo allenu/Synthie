@@ -31,6 +31,18 @@
 		B7482DA620D21CBA00EB637B /* oscillators.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7482D7220D2150900EB637B /* oscillators.cpp */; };
 		B7482DA720D21CBA00EB637B /* synthie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7482D7B20D2150900EB637B /* synthie.cpp */; };
 		B7482DA920D21D7500EB637B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7482DA820D21D7400EB637B /* main.cpp */; };
+		B7482DB020D236D000EB637B /* synthesizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7482DAD20D236CF00EB637B /* synthesizer.cpp */; };
+		B7482DB120D236D000EB637B /* synthesizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7482DAD20D236CF00EB637B /* synthesizer.cpp */; };
+		B7482DB220D236D000EB637B /* songreader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7482DAE20D236CF00EB637B /* songreader.cpp */; };
+		B7482DB320D236D000EB637B /* songreader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7482DAE20D236CF00EB637B /* songreader.cpp */; };
+		B7482DB420D236D000EB637B /* instrument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7482DAF20D236CF00EB637B /* instrument.cpp */; };
+		B7482DB520D236D000EB637B /* instrument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7482DAF20D236CF00EB637B /* instrument.cpp */; };
+		B7482DB620D237A500EB637B /* instrument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7482DAF20D236CF00EB637B /* instrument.cpp */; };
+		B7482DB720D237A500EB637B /* songreader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7482DAE20D236CF00EB637B /* songreader.cpp */; };
+		B7482DB820D237A500EB637B /* synthesizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7482DAD20D236CF00EB637B /* synthesizer.cpp */; };
+		B7482DBB20D248EA00EB637B /* envelope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7482DBA20D248EA00EB637B /* envelope.cpp */; };
+		B7482DBC20D248EA00EB637B /* envelope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7482DBA20D248EA00EB637B /* envelope.cpp */; };
+		B7482DBD20D248EA00EB637B /* envelope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7482DBA20D248EA00EB637B /* envelope.cpp */; };
 		B74F44E820C3BB3500E894D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F44E720C3BB3500E894D2 /* AppDelegate.swift */; };
 		B74F44EA20C3BB3500E894D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F44E920C3BB3500E894D2 /* ViewController.swift */; };
 		B74F44EC20C3BB3500E894D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B74F44EB20C3BB3500E894D2 /* Assets.xcassets */; };
@@ -75,6 +87,14 @@
 		B7482D9420D2156400EB637B /* AudioHAL.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AudioHAL.hpp; sourceTree = "<group>"; };
 		B7482D9F20D21C8E00EB637B /* GeneratePcm */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GeneratePcm; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7482DA820D21D7400EB637B /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../generate_pcm_file/main.cpp; sourceTree = "<group>"; };
+		B7482DAA20D236CF00EB637B /* synthesizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = synthesizer.h; sourceTree = "<group>"; };
+		B7482DAB20D236CF00EB637B /* instrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = instrument.h; sourceTree = "<group>"; };
+		B7482DAC20D236CF00EB637B /* songreader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = songreader.h; sourceTree = "<group>"; };
+		B7482DAD20D236CF00EB637B /* synthesizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = synthesizer.cpp; sourceTree = "<group>"; };
+		B7482DAE20D236CF00EB637B /* songreader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = songreader.cpp; sourceTree = "<group>"; };
+		B7482DAF20D236CF00EB637B /* instrument.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = instrument.cpp; sourceTree = "<group>"; };
+		B7482DB920D248E900EB637B /* envelope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = envelope.h; sourceTree = "<group>"; };
+		B7482DBA20D248EA00EB637B /* envelope.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = envelope.cpp; sourceTree = "<group>"; };
 		B74F44E420C3BB3500E894D2 /* Synthie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Synthie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B74F44E720C3BB3500E894D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B74F44E920C3BB3500E894D2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +162,14 @@
 		B7482D7120D2150900EB637B /* src */ = {
 			isa = PBXGroup;
 			children = (
+				B7482DBA20D248EA00EB637B /* envelope.cpp */,
+				B7482DB920D248E900EB637B /* envelope.h */,
+				B7482DAF20D236CF00EB637B /* instrument.cpp */,
+				B7482DAB20D236CF00EB637B /* instrument.h */,
+				B7482DAE20D236CF00EB637B /* songreader.cpp */,
+				B7482DAC20D236CF00EB637B /* songreader.h */,
+				B7482DAD20D236CF00EB637B /* synthesizer.cpp */,
+				B7482DAA20D236CF00EB637B /* synthesizer.h */,
 				B7482D7220D2150900EB637B /* oscillators.cpp */,
 				B7482D7320D2150900EB637B /* oscillators.h */,
 				B7482D7B20D2150900EB637B /* synthie.cpp */,
@@ -337,13 +365,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7482D9A20D2156500EB637B /* AudioHAL.cpp in Sources */,
+				B7482DB320D236D000EB637B /* songreader.cpp in Sources */,
 				B7482D9820D2156400EB637B /* AudioEngineObjC.mm in Sources */,
+				B7482DBC20D248EA00EB637B /* envelope.cpp in Sources */,
 				B7482D4920CC53F000EB637B /* ViewController.swift in Sources */,
 				B7482D8E20D2151B00EB637B /* SynthieHALUnit.cpp in Sources */,
 				B7482D8820D2150900EB637B /* synthie.cpp in Sources */,
 				B7482D8020D2150900EB637B /* oscillators.cpp in Sources */,
 				B7482D4720CC53F000EB637B /* AppDelegate.swift in Sources */,
 				B7482D9620D2156400EB637B /* AudioEngine.swift in Sources */,
+				B7482DB520D236D000EB637B /* instrument.cpp in Sources */,
+				B7482DB120D236D000EB637B /* synthesizer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +383,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7482DB620D237A500EB637B /* instrument.cpp in Sources */,
+				B7482DB720D237A500EB637B /* songreader.cpp in Sources */,
+				B7482DBD20D248EA00EB637B /* envelope.cpp in Sources */,
+				B7482DB820D237A500EB637B /* synthesizer.cpp in Sources */,
 				B7482DA720D21CBA00EB637B /* synthie.cpp in Sources */,
 				B7482DA620D21CBA00EB637B /* oscillators.cpp in Sources */,
 				B7482DA920D21D7500EB637B /* main.cpp in Sources */,
@@ -362,13 +398,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7482D9920D2156500EB637B /* AudioHAL.cpp in Sources */,
+				B7482DB220D236D000EB637B /* songreader.cpp in Sources */,
 				B7482D9720D2156400EB637B /* AudioEngineObjC.mm in Sources */,
+				B7482DBB20D248EA00EB637B /* envelope.cpp in Sources */,
 				B74F44EA20C3BB3500E894D2 /* ViewController.swift in Sources */,
 				B7482D8D20D2151B00EB637B /* SynthieHALUnit.cpp in Sources */,
 				B7482D8720D2150900EB637B /* synthie.cpp in Sources */,
 				B7482D7F20D2150900EB637B /* oscillators.cpp in Sources */,
 				B74F44E820C3BB3500E894D2 /* AppDelegate.swift in Sources */,
 				B7482D9520D2156400EB637B /* AudioEngine.swift in Sources */,
+				B7482DB420D236D000EB637B /* instrument.cpp in Sources */,
+				B7482DB020D236D000EB637B /* synthesizer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

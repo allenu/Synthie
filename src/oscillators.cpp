@@ -1,5 +1,7 @@
 #include <math.h>
 #include <stdlib.h>
+#include <assert.h>
+#include "oscillators.h"
 
 // Normalize an angle theta from 0.0 to 2PI
 double normalize_angle(double theta) {
@@ -62,3 +64,33 @@ double noisewave(double theta) {
     
     return sample;
 }
+
+// Oscillates from -1 to +1
+double f_oscillator_sample(oscillator_t oscillator, double freq, double start_time, double time) {
+    double normalized_time = time - start_time;
+    double theta = 2.0 * M_PI * freq * normalized_time;
+
+    switch (oscillator) {
+        case kSineWave:
+            return sin(theta);
+
+        case kTriangleWave:
+            return triwave(theta);
+
+        case kSquareWave:
+            return squarewave(theta, 0.50);
+
+        case kSawtoothWave:
+            return sawtooth(theta);
+
+        case kNoiseWave:
+            return noisewave(theta);
+
+        case kSilence:
+            return 0.0;
+
+        default:
+            assert(false);
+    }
+}
+

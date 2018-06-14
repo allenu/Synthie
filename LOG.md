@@ -5,6 +5,11 @@ I've added a platform-agnostic example in examples/generate_pcm_file. Run "make"
 directory to build, then "make test" to run it, and after installing sox (you'll need
 the "play" utility), run "make play".
 
+I broke up the code into their own files instead of having one massive file. Having everything
+in one massive file did actually simplify reading the code once you knew how it worked, but I
+figured it's easier to explain how it works piece by piece if I actually separated the 
+functionality out into their own files.
+
 # 2018/06/10 Sun
 
 Yesterday night I thought about how to define the basic data structures for the music player.
