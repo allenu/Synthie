@@ -1,4 +1,14 @@
 
+# 2018/06/14 Thu
+
+I cleaned up the logic for determining if the song reader state should change. I previously would
+force a state change on each sample (inefficient) and in the function that causes a state change
+it would check if it was time for the next beat in the pattern to be processed.
+
+This was slightly wasteful and a little hard to read, so instead when a new reader state is 
+generated, we calculate the time that the next pattern beat should be processed and use that
+to determine if we should update state in the future.
+
 # 2018/06/13 Wed
 
 I've added a platform-agnostic example in examples/generate_pcm_file. Run "make" in the

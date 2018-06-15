@@ -1,17 +1,13 @@
 # TODO:
 
 - [ ] clean-up
-    - [ ] get rid of process_next_beat flag and pattern_start_time
+    - [x] get rid of process_next_beat flag and pattern_start_time
         - we can increment the reader to the next pattern line command manually
         - just use bpm
     - [x] separate synthesizer code from song player
     - [x] separate song player sample provider from the synthesizer and song player code
         it's better to think of the combination of synth and song player as separate from the other two
     - [ ] bounds-checking
-
-- [ ] multi-platform stuff
-    - [ ] Add simple tone playback for Raspberry Pi
-    - [ ] Clean up AudioHAL so it's more functional and uses less mutable data
 
 - [ ] better song structure
     - [ ] support notes that release immediately
@@ -22,6 +18,10 @@
 
 - [ ] make it easier to write songs
     - [ ] update old script that converted text file to a .plist and instead dump out a json file
+
+- [ ] multi-platform stuff
+    - [ ] Add simple tone playback for Raspberry Pi
+    - [ ] Clean up AudioHAL so it's more functional and uses less mutable data
 
 - [x] Write platform-agnostic test that spits out a PCM file that you can play with sox
 
