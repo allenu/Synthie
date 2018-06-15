@@ -1,5 +1,4 @@
 #include "songplayer.h"
-#include <math.h>
 #include <assert.h>
 
 // Convert a set of pattern commands into synthesizer commands. The synthesizer doesn't
