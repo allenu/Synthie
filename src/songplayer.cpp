@@ -127,7 +127,7 @@ void get_song_player_samples(
                 state = f_next_song_player_state(state, song);
             }
 
-            samples[i] = f_synthesizer_sample(next_state->synthesizer_state, sample_time);
+            samples[i] = f_synthesizer_sample(state.synthesizer_state, sample_time);
         }
     }
     state.next_sample_time = next_sample_time + num_samples * sample_period;
