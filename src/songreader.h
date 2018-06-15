@@ -47,6 +47,7 @@ typedef struct {
 
 typedef struct {
     song_reader_options_t song_reader_options;
+    bool started_playing;
     bool done;
 
     double pattern_start_time;  // when we started playing this pattern
@@ -66,5 +67,5 @@ typedef struct {
     pattern_command_t *pattern_commands;
 } song_reader_state_t;
 
-song_reader_state_t f_next_song_reader_state(const song_reader_state_t & prev_state, const song_t & song, double time);
+song_reader_state_t f_next_song_reader_state(const song_reader_state_t & prev_state, const song_t & song);
 

@@ -72,9 +72,6 @@ int main(int argc, char *argv[]) {
     const double num_seconds = 10.0;
     const double total_samples = num_seconds * sample_rate;
 
-    // HACK: To ensure our first sample is at time==0.0, we pretend our previous state's time was -1/sample_rate.
-    prev_state.time = - 1.0 / sample_rate;
-
     FILE *fp = fopen("output.pcm", "wb");
 
     for (int i=0; i < total_samples; ++i) {

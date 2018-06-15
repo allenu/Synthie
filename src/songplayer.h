@@ -9,7 +9,9 @@
 typedef struct {
     song_reader_state_t song_reader_state;
     synthesizer_state_t synthesizer_state;
-    double time;
+    double next_sample_time;
+
+    double next_beat_time;
 } song_player_state_t;
 
 // API
@@ -20,7 +22,7 @@ song_player_state_t create_song_player_state(int num_channels);
 // This also produces the next state for the player to feed in for the next time.
 void get_song_player_samples(
         const song_t & song,
-        song_player_state_t prev_state, 
+        const song_player_state_t & prev_state, 
         const double sample_rate,
         const int num_samples,
         double *samples,
