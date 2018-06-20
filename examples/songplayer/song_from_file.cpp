@@ -73,24 +73,12 @@ song_t song_from_file(const char *filename) {
             instrument_representation_t instrument;
             fread(&instrument, sizeof(instrument_representation_t), 1, fp);
 
-            printf("sizeof rep %d\n", sizeof(instrument_representation_t));
-            printf("oscillator %d\n", instrument.oscillator);
-
             song.instruments[i].oscillator = static_cast<oscillator_t>(instrument.oscillator);
             song.instruments[i].envelope.attack_time = instrument.attack_time;
             song.instruments[i].envelope.attack_gain = instrument.attack_gain;
             song.instruments[i].envelope.decay_time = instrument.decay_time;
             song.instruments[i].envelope.sustain_gain = instrument.sustain_gain;
             song.instruments[i].envelope.release_time = instrument.release_time;
-
-            printf("instrument %d: %d    %.2f %.2f  %.2f %.2f  %.2f\n",
-                    i,
-                    song.instruments[i].oscillator,
-                    song.instruments[i].envelope.attack_time,
-                    song.instruments[i].envelope.attack_gain,
-                    song.instruments[i].envelope.decay_time,
-                    song.instruments[i].envelope.sustain_gain,
-                    song.instruments[i].envelope.release_time);
         }
 
         for (int i=0; i < song_header.num_patterns; ++i) {
@@ -109,12 +97,6 @@ song_t song_from_file(const char *filename) {
 
                 song.patterns[i].pattern_commands[j].tick_index = command.tick_index;
                 song.patterns[i].pattern_commands[j].action_type = static_cast<pattern_action_t>(command.action_type);
-
-                printf("command %d: tick_index %d   ins %d  note: %d - %d\n", 
-                        j,
-                        command.tick_index,
-                        command.instrument_index,
-                        command.note, command.octave);
 
                 double freq = GetToneForNote(command.note, command.octave);
                 song.patterns[i].pattern_commands[j].freq = freq;
