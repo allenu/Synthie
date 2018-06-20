@@ -17,7 +17,13 @@ After cloning:
     make test
     make play
 
-You'll need sox installed to run the "make play" part.
+You'll need sox installed to run the "make play" part. Take a look at examples/generate_pcm_file/main.cpp.
+
+To see a song player in action:
+
+    cd examples/songplayer
+    make
+    make test
 
 # Design
 
