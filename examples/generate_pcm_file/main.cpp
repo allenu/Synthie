@@ -46,7 +46,7 @@ static pattern_command_t s_pattern0_commands[] = {
     pattern_command_t { 3, kPatternAction_PlayTone, Note_C, 3, Bass_Instrument },
 };
 static pattern_t s_patterns[] = {
-    { 160.0, 4, sizeof(s_pattern0_commands)/sizeof(s_pattern0_commands[0]), s_pattern0_commands },
+    { 160.0, 1, 4, sizeof(s_pattern0_commands)/sizeof(s_pattern0_commands[0]), s_pattern0_commands },
 };
 
 

@@ -13,7 +13,7 @@ typedef enum {
 } pattern_action_t;
 
 typedef struct {
-    int beat_index;
+    int tick_index;
     pattern_action_t action_type;
     double freq;
 
@@ -23,7 +23,8 @@ typedef struct {
 
 typedef struct {
     double bpm;
-    int num_beats;  // How long the pattern is in beats
+    int ticks_per_beat;
+    int ticks_per_pattern;
 
     int num_pattern_commands;
     pattern_command_t *pattern_commands;
@@ -52,15 +53,15 @@ typedef struct {
 
     double pattern_start_time;  // when we started playing this pattern
     int pattern_index;          // which pattern we're playing in the song
-    int beat_index;             // which note in the pattern we've processed
+    int tick_index;             // which note in the pattern we've processed
 
     // Cache of the index of the next command to execute in the current
     // pattern. This is just an optimization so that we don't search through 
-    // the pattern_commands to find the next command with the same beat_index
+    // the pattern_commands to find the next command with the same tick_index
     // as we need.
     int next_pattern_command_index;
 
-    // Which commands to execute for this beat. Is just a pointer into 
+    // Which commands to execute for this tick. Is just a pointer into 
     // pattern_commands for the given pattern in the song. These are all 
     // the commands for the current note.
     int num_pattern_commands;

@@ -1,0 +1,139 @@
+
+.track_info
+bpm: 200
+ticks_per_beat: 1
+ticks_per_pattern: 32
+
+.instruments
+snare: noise 0.1 1.0  0.8 0.0  0.0
+bdrum: square 0.5 1.0  0.3 0.0  0.0
+organ: square 0.1 1.0  0.3 0.0  1.0
+accordion: triangle 0.1 1.0  0.4 0.8  1.0
+violin: square 0.5 1.0  1.3 0.0  0.0
+
+.pattern 0
+
+# Just play a Cmaj then Emin chord using channels 0, 1, and 2:
+
+# Channel 0
+
+0: 0 organ c4
+1: 0 organ c4
+2: 0 organ c4
+3: 0 organ c4
+4: 0 organ c4
+5: 0 organ c4
+6: 0 organ c4
+7: 0 organ c4
+
+8: 0 organ c4
+9: 0 organ c4
+10: 0 organ c4
+11: 0 organ c4
+12: 0 organ c4
+13: 0 organ c4
+14: 0 organ c4
+15: 0 organ c4
+
+16: 0 organ b2
+17: 0 organ b2
+18: 0 organ b2
+19: 0 organ b2
+20: 0 organ b2
+21: 0 organ b2
+22: 0 organ b2
+23: 0 organ b2
+
+24: 0 organ b2
+25: 0 organ b2
+26: 0 organ b2
+27: 0 organ b2
+28: 0 organ b2
+29: 0 organ b2
+30: 0 organ b2
+31: 0 organ b2
+
+# Channel 1
+
+0: 1 organ e4
+1: 1 organ e4
+2: 1 organ e4
+3: 1 organ e4
+4: 1 organ e4
+5: 1 organ e4
+6: 1 organ e4
+7: 1 organ e4
+
+8: 1 organ e4
+9: 1 organ e4
+10: 1 organ e4
+11: 1 organ e4
+12: 1 organ e4
+13: 1 organ e4
+14: 1 organ e4
+15: 1 organ e4
+
+16: 1 organ e4
+17: 1 organ e4
+18: 1 organ e4
+19: 1 organ e4
+20: 1 organ e4
+21: 1 organ e4
+22: 1 organ e4
+23: 1 organ e4
+
+24: 1 organ e4
+25: 1 organ e4
+26: 1 organ e4
+27: 1 organ e4
+28: 1 organ e4
+29: 1 organ e4
+30: 1 organ e4
+31: 1 organ e4
+
+# Channel 2
+
+0: 2 organ g4
+1: 2 organ g4
+2: 2 organ g4
+3: 2 organ g4
+4: 2 organ g4
+5: 2 organ g4
+6: 2 organ g4
+7: 2 organ g4
+
+8: 2 organ g4
+9: 2 organ g4
+10: 2 organ g4
+11: 2 organ g4
+12: 2 organ g4
+13: 2 organ g4
+14: 2 organ g4
+15: 2 organ g4
+
+16: 2 organ g4
+17: 2 organ g4
+18: 2 organ g4
+19: 2 organ g4
+20: 2 organ g4
+21: 2 organ g4
+22: 2 organ g4
+23: 2 organ g4
+
+24: 2 organ g4
+25: 2 organ g4
+26: 2 organ g4
+27: 2 organ g4
+28: 2 organ g4
+29: 2 organ g4
+30: 2 organ g4
+31: 2 organ g4
+
+# Channel 3: Just a violin line over top the chord
+
+0: 3 violin c5
+12: 3 violin c5
+14: 3 violin e5
+16: 3 violin b4
+28: 3 violin b4
+30: 3 violin g4

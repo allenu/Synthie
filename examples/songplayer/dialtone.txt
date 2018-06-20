@@ -1,0 +1,15 @@
+
+.track_info
+bpm: 200
+pattern_length: 32
+
+.instruments
+violin: sine 0.5 1.0  20.3 0.0  0.0
+
+.pattern 0
+
+# As close as we can get to a dial tone using notes. A dial tone is 
+# 350Hz and 440Hz. 350Hz is close to F4 note, but not quite.
+0: 0 violin f4
+0: 1 violin a5
+

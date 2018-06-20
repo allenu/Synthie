@@ -2,12 +2,12 @@
 #include <assert.h>
 
 // Convert a set of pattern commands into synthesizer commands. The synthesizer doesn't
-// know anything about beat indexes, beat periods or what the instruments are, so this
+// know anything about tick indexes, tick periods or what the instruments are, so this
 // translates those concepts into ones that the synthesizer understands.
 //
 // - num_pattern_commands, pattern_commands: the number of and the pattern commands themselves
-// - pattern_start_time: when this pattern began (time of beat 0)
-// - beat_period: how long each beat is
+// - pattern_start_time: when this pattern began (time of tick 0)
+// - tick_period: how long each tick is
 // - num_instruments, instruments: the number of and the actual instruments themselves
 //
 // Caller must delete [] the returned array.
@@ -15,7 +15,7 @@ synthesizer_command_t * f_synthesizer_commands_from_pattern_commands(
         int num_pattern_commands, 
         const pattern_command_t *pattern_commands,
         double pattern_start_time,
-        double beat_period,
+        double tick_period,
         int num_instruments,
         const instrument_t *instruments) {
     
@@ -23,7 +23,7 @@ synthesizer_command_t * f_synthesizer_commands_from_pattern_commands(
     
     for (int i=0; i < num_pattern_commands; ++i) {
         synthesizer_commands[i].channel = pattern_commands[i].channel;
-        synthesizer_commands[i].time = pattern_start_time + pattern_commands[i].beat_index * beat_period;
+        synthesizer_commands[i].time = pattern_start_time + pattern_commands[i].tick_index * tick_period;
         switch (pattern_commands[i].action_type) {
         case kPatternAction_PlayTone:
             synthesizer_commands[i].action_type = kSynthesizerAction_PlayTone;
@@ -54,7 +54,7 @@ song_player_state_t f_next_song_player_state(
         f_next_song_reader_state(prev_state.song_reader_state, song);
 
     const pattern_t *current_pattern = &song.patterns[next_song_reader_state.pattern_index];
-    double beat_period = 60.0 / current_pattern->bpm;
+    double tick_period = 60.0 / (current_pattern->bpm * current_pattern->ticks_per_beat);
 
     synthesizer_state_t next_synthesizer_state;
 
@@ -66,7 +66,7 @@ song_player_state_t f_next_song_player_state(
             next_song_reader_state.num_pattern_commands, 
             next_song_reader_state.pattern_commands,
             next_song_reader_state.pattern_start_time,
-            beat_period,
+            tick_period,
             song.num_instruments,
             song.instruments);
 
@@ -81,7 +81,7 @@ song_player_state_t f_next_song_player_state(
     }
 
     song_player_state_t next_state;
-    next_state.next_beat_time = prev_state.next_beat_time + beat_period;
+    next_state.next_tick_time = prev_state.next_tick_time + tick_period;
     next_state.song_reader_state = next_song_reader_state;
     next_state.synthesizer_state = next_synthesizer_state;
 
@@ -121,8 +121,8 @@ void get_song_player_samples(
         } else {
             double sample_time = next_sample_time + i * sample_period;
             
-            // Read the next beat if it's time
-            if (sample_time >= state.next_beat_time) {
+            // Read the next tick if it's time
+            if (sample_time >= state.next_tick_time) {
                 state = f_next_song_player_state(state, song);
             }
 

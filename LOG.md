@@ -1,4 +1,12 @@
 
+# 2018/06/19 Wed
+
+I added a ruby script to create a song file and then a song2pcm tool that converts it to a pcm
+file. 
+
+Made some minor improvements to the song format as well (replaced "beats" with "ticks", which
+is more accurate).
+
 # 2018/06/14 Thu
 
 I cleaned up the logic for determining if the song reader state should change. I previously would

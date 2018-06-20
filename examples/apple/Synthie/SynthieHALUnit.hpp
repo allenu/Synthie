@@ -14,7 +14,7 @@
 
 class SynthieHALUnit: public IAudioHALUnit {
 public:
-    SynthieHALUnit();
+    SynthieHALUnit(const char *filename);
     virtual ~SynthieHALUnit() {}
 
     void GetFrames(Float32 *out, UInt32 numSamples, int sampleRate);

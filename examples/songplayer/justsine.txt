@@ -1,0 +1,11 @@
+
+.track_info
+bpm: 200
+pattern_length: 32
+
+.instruments
+violin: sine 0.5 1.0  20.3 0.0  0.0
+
+.pattern 0
+
+0: 3 violin a5

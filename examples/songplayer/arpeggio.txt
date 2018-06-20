@@ -1,0 +1,44 @@
+
+.track_info
+bpm: 200
+ticks_per_beat: 3
+ticks_per_pattern: 8
+
+.instruments
+snare: noise 0.1 1.0  0.8 0.0  0.0
+bdrum: square 0.5 1.0  0.3 0.0  0.0
+organ: square 0.1 1.0  0.3 0.0  1.0
+accordion: triangle 0.1 1.0  0.4 0.8  1.0
+violin: square 0.5 1.0  1.3 1.0  0.2
+
+.pattern 0
+
+# Channel 0
+
+0: 0 organ c4
+1: 0 organ e4
+2: 0 organ g4
+3: 0 organ a#4
+4: 0 organ c5
+5: 0 organ c4
+6: 0 organ e4
+7: 0 organ g4
+
+.pattern 1
+
+# Channel 0
+
+0: 0 organ c4
+1: 0 organ e4
+2: 0 organ g4
+3: 0 organ a#4
+4: 0 organ c5
+5: 0 organ c4
+6: 0 organ e4
+7: 0 organ g4
+
+0: 1 violin c4
+1: 1 ----
+4: 1 violin c4
+5: 1 ----
+

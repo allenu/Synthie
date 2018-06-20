@@ -19,7 +19,8 @@
     
     if (self) {
         _audioHAL = new CAudioHAL();
-        _audioHAL->SetAudioUnit(new SynthieHALUnit());
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"example" ofType:@"song"];
+        _audioHAL->SetAudioUnit(new SynthieHALUnit([path cStringUsingEncoding:NSUTF8StringEncoding]));
     }
     
     return self;

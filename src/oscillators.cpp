@@ -78,7 +78,7 @@ double f_oscillator_sample(oscillator_t oscillator, double freq, double start_ti
             return triwave(theta);
 
         case kSquareWave:
-            return squarewave(theta, 0.50);
+            return squarewave(theta, 0.70);
 
         case kSawtoothWave:
             return sawtooth(theta);

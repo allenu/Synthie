@@ -47,6 +47,10 @@
 		B74F44EA20C3BB3500E894D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74F44E920C3BB3500E894D2 /* ViewController.swift */; };
 		B74F44EC20C3BB3500E894D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B74F44EB20C3BB3500E894D2 /* Assets.xcassets */; };
 		B74F44EF20C3BB3500E894D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B74F44ED20C3BB3500E894D2 /* Main.storyboard */; };
+		B78BD32020DA342500E48213 /* song_from_file.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B78BD31E20DA342500E48213 /* song_from_file.cpp */; };
+		B78BD32120DA342500E48213 /* song_from_file.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B78BD31E20DA342500E48213 /* song_from_file.cpp */; };
+		B78BD32620DA352D00E48213 /* example.song in Resources */ = {isa = PBXBuildFile; fileRef = B78BD32520DA352C00E48213 /* example.song */; };
+		B78BD32720DA352D00E48213 /* example.song in Resources */ = {isa = PBXBuildFile; fileRef = B78BD32520DA352C00E48213 /* example.song */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -104,6 +108,9 @@
 		B74F44F020C3BB3500E894D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B74F44F120C3BB3500E894D2 /* Synthie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Synthie.entitlements; sourceTree = "<group>"; };
 		B74F44FA20C3BC6700E894D2 /* Synthie-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Synthie-Bridging-Header.h"; sourceTree = "<group>"; };
+		B78BD31E20DA342500E48213 /* song_from_file.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = song_from_file.cpp; path = ../../songplayer/song_from_file.cpp; sourceTree = "<group>"; };
+		B78BD31F20DA342500E48213 /* song_from_file.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = song_from_file.h; path = ../../songplayer/song_from_file.h; sourceTree = "<group>"; };
+		B78BD32520DA352C00E48213 /* example.song */ = {isa = PBXFileReference; lastKnownFileType = file; name = example.song; path = ../../songplayer/example.song; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +157,9 @@
 		B7482D4520CC53F000EB637B /* PocketSynthie */ = {
 			isa = PBXGroup;
 			children = (
+				B78BD32520DA352C00E48213 /* example.song */,
+				B78BD31E20DA342500E48213 /* song_from_file.cpp */,
+				B78BD31F20DA342500E48213 /* song_from_file.h */,
 				B7482D4620CC53F000EB637B /* AppDelegate.swift */,
 				B7482D4820CC53F000EB637B /* ViewController.swift */,
 				B7482D4A20CC53F000EB637B /* Main.storyboard */,
@@ -345,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7482D5120CC53F000EB637B /* LaunchScreen.storyboard in Resources */,
+				B78BD32720DA352D00E48213 /* example.song in Resources */,
 				B7482D4E20CC53F000EB637B /* Assets.xcassets in Resources */,
 				B7482D4C20CC53F000EB637B /* Main.storyboard in Resources */,
 			);
@@ -354,6 +365,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B78BD32620DA352D00E48213 /* example.song in Resources */,
 				B74F44EC20C3BB3500E894D2 /* Assets.xcassets in Resources */,
 				B74F44EF20C3BB3500E894D2 /* Main.storyboard in Resources */,
 			);
@@ -378,6 +390,7 @@
 				B7482D9620D2156400EB637B /* AudioEngine.swift in Sources */,
 				B7482DB520D236D000EB637B /* instrument.cpp in Sources */,
 				B7482DB120D236D000EB637B /* synthesizer.cpp in Sources */,
+				B78BD32120DA342500E48213 /* song_from_file.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +424,7 @@
 				B7482D9520D2156400EB637B /* AudioEngine.swift in Sources */,
 				B7482DB420D236D000EB637B /* instrument.cpp in Sources */,
 				B7482DB020D236D000EB637B /* synthesizer.cpp in Sources */,
+				B78BD32020DA342500E48213 /* song_from_file.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

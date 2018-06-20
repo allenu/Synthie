@@ -7,6 +7,7 @@
 //
 
 #include "SynthieHALUnit.hpp"
+#include "song_from_file.h"
 
 static double s_notes[12] = {16.35, 17.32, 18.35, 19.45,
     20.60,21.83,23.12,24.50,
@@ -50,10 +51,12 @@ static pattern_command_t s_pattern0_commands[] = {
     pattern_command_t { 7, kPatternAction_ReleaseTone, 0.0, 3, 0 },
 };
 static pattern_t s_patterns[] = {
-    { 120.0, 8, sizeof(s_pattern0_commands)/sizeof(s_pattern0_commands[0]), s_pattern0_commands },
+    { 120.0, 1, 8, sizeof(s_pattern0_commands)/sizeof(s_pattern0_commands[0]), s_pattern0_commands },
 };
 
-SynthieHALUnit::SynthieHALUnit() {
+SynthieHALUnit::SynthieHALUnit(const char *filename) {
+#if 0
+    // Load song via s_patterns
     song_t song = { 0 };
     
     song.num_instruments = sizeof(s_instruments)/sizeof(s_instruments[0]);
@@ -64,14 +67,16 @@ SynthieHALUnit::SynthieHALUnit() {
     song.num_channels = 4;
     
     _song = song;
+#endif
     
-    _song_player_state = create_song_player_state(song.num_channels);
+    _song = song_from_file(filename);
+    
+    _song_player_state = create_song_player_state(_song.num_channels);
 }
 
 void SynthieHALUnit::GetFrames(Float32 *out, UInt32 numSamples, int sampleRate) {
     if (_first_time) {
         _first_time = false;
-        _song_player_state.time = - 1.0 / (double)sampleRate;
     }
     
     song_player_state_t next_state = { 0 };

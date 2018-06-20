@@ -19,7 +19,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ola-h6-3Nf">
-                                <rect key="frame" x="172" y="20" width="30" height="30"/>
+                                <rect key="frame" x="157.5" y="307.5" width="59" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <state key="normal" title="Play"/>
                                 <connections>
                                     <action selector="didTapPlayWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X7t-Kd-sHf"/>
@@ -28,7 +29,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ola-h6-3Nf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="TkR-Hv-Ann"/>
+                            <constraint firstItem="ola-h6-3Nf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="KFD-3m-NkT"/>
                             <constraint firstItem="ola-h6-3Nf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rgj-Om-SiV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

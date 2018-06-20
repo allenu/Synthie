@@ -11,7 +11,7 @@ typedef struct {
     synthesizer_state_t synthesizer_state;
     double next_sample_time;
 
-    double next_beat_time;
+    double next_tick_time;
 } song_player_state_t;
 
 // API
