@@ -11,13 +11,13 @@
 
 - [ ] better song structure
     - [ ] support notes that release immediately
-    - [ ] change beat_index to line_index; add lines_per_beat to pattern
+    - [x] change beat_index to line_index; add lines_per_beat to pattern
     - [ ] support gain per channel
     - [ ] support gain change command
     - [ ] support phase change
 
-- [ ] make it easier to write songs
-    - [ ] update old script that converted text file to a .plist and instead dump out a json file
+- [x] make it easier to write songs
+    - [x] update old script that converted text file to a .plist and instead dump out a json file
 
 - [ ] multi-platform stuff
     - [ ] Add simple tone playback for Raspberry Pi
