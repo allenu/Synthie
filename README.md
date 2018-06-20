@@ -1,6 +1,6 @@
 # Synthie
 
-Synthie is an 8-bit style synth audio/music player. It's a work in progress.
+Synthie is an 8-bit style synth audio/music player. It is written in a functional programming style. It's written in C++ but doesn't use any classes, just structs and functions to transform data from one state to another.
 
 For more information, read blog posts here: 
 
@@ -17,7 +17,9 @@ After cloning:
     make test
     make play
 
-You'll need sox installed to run the "make play" part. Take a look at examples/generate_pcm_file/main.cpp.
+You'll need sox installed to run the "make play" part. 
+
+Take a look at examples/generate_pcm_file/main.cpp to see how to get samples and update the song player and synth states.
 
 To see a song player in action:
 
