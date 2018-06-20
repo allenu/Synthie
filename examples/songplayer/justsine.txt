@@ -1,7 +1,7 @@
 
 .track_info
 bpm: 200
-pattern_length: 32
+ticks_per_pattern: 32
 
 .instruments
 violin: sine 0.5 1.0  20.3 0.0  0.0
